@@ -73,6 +73,8 @@ namespace TouchTransporter_Client
                         };
                         wc.DownloadStringCompleted += async (sendere, ee) =>
                         {
+                            try
+                            { 
                             Infos.addLog("Searching update for files...");
                             upd = ee.Result;
                             SettingsReaderString srs = new SettingsReaderString(upd.Replace("\r", ""));
@@ -116,6 +118,13 @@ namespace TouchTransporter_Client
                             }
                             else dlFile();
                             wc.Dispose();
+                            }
+                            catch (Exception ei)
+                            {
+                                _main.updl.Content = "Update search error.";
+                                _main.updg.Visibility = Visibility.Collapsed;
+                                Infos.newErr(ei.InnerException, "Unable to connect to the server update.");
+                            }
                         };
                         Infos.addLog("Downloading file list update.");
                         wc.DownloadStringAsync(wb.Url);

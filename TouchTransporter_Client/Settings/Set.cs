@@ -19,7 +19,7 @@ namespace TouchTransporter_Client.Settings
             if (!Infos.sf.settingExists("Hover")) Infos.sf.setSetting("Hover", true, null);
             main.mod_hover.IsChecked = main.tgraph.allowHover = Infos.sf.getBoolSetting("Hover");
             //upd
-            if (!Infos.sf.settingExists("Url_Server")) Infos.sf.setSetting("Url_Server", "aketsuky.com", new string[] { "Server" });
+            if (!Infos.sf.settingExists("Url_Server")) Infos.sf.setSetting("Url_Server", "aketsuky.eu", new string[] { "Server" });
             if (!Infos.sf.settingExists("Write_logs"))
             {
                 Infos.sf.setSetting("Write_logs", false, null);
